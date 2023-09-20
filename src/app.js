@@ -1,13 +1,18 @@
-var logger = require("morgan");
-var express = require("express");
-var cookieParser = require("cookie-parser");
-var indexRouter = require("./routes/index");
-var app = express();
+import logger from 'morgan';
+import express from 'express';
+import cookieParser from 'cookie-parser';
+import indexRouter from './routes/index';
+// const logger = require("morgan");
+// const express = require("express");
+// const cookieParser = require("cookie-parser");
+// const indexRouter = require("./routes/index");
+const app = express();
 
-app.use(logger("dev"));
+app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use("/v1", indexRouter);
+app.use('/v1', indexRouter);
 
-module.exports = app;
+// module.exports = app;
+export default app;
