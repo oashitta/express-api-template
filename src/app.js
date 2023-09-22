@@ -13,5 +13,10 @@ app.use(cookieParser());
 app.use('/v1', indexRouter);
 app.use("/users", usersRouter)
 
+// error handler must come last. 
+app.use((err, req, res, next) => {
+  res.status(400).json({ error: err.stack });
+});
+
 // module.exports = app;
 export default app;
